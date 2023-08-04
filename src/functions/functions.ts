@@ -38,6 +38,7 @@ const DeleteItem = async (db:Firestore,id:string, block:boolean) => {
 
 // Função para bloquear/desbloquear um item no Firestore
 const BlockedItem = async (db:Firestore,id:string, block:boolean) => {
+  console.log(id,block)
   const docRef = doc(db, 'tasks', id);
   await updateDoc(docRef, {
     block: !block

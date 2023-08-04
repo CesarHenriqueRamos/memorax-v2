@@ -20,7 +20,8 @@ import { Navigate } from "react-router-dom";
             const sessionToken = sessionStorage.getItem("@AuthFirebase:token");
             const sessionUser = sessionStorage.getItem("@AuthFirebase:user");
             if(sessionToken && sessionUser){
-                setUser(sessionUser)
+                const userLoad = JSON.parse(sessionUser);
+                setUser(userLoad)
             }
         }
         loadStorageAuth();
