@@ -132,7 +132,7 @@ export const Home = () => {
         <div className="modal">
           <div className="modal-content">
             <h2 className="title-modal">Editar Informações</h2>
-           <div className="form-group">
+           <div className="form-group-modal">
             <label htmlFor="title" className="label">Titulo:</label>
             <input type="text" name="title" id="title" value={title}
              onChange={e => setTitle(e.target.value)} className="form-input-modal" />
