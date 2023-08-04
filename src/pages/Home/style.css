@@ -207,6 +207,11 @@
     background-color: #27AE60;
     color: white;
   }
+
+  .responsible{
+    font-size: 1rem;
+    font-weight: bold;
+  }
   
   @media screen and (max-width:499px) {
     .modal{

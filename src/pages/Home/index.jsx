@@ -96,7 +96,7 @@ export const Home = () => {
                   <div className="card-buttons">
                     {item.finalize && 
                     <>
-                     <p>Responsavel:{item.name_finalize}</p>
+                     <p className="responsible">Responsavel:{item.name_finalize}</p>
                     </> }
                     {
                      !item.finalize && 
