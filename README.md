@@ -14,9 +14,9 @@
     
 ### configurações para ambiente local
 ## Instalação
-### `yarn`
+ `yarn`
 ## Rodar o projeto
-### `yarn start`
+ `yarn start`
 ## Rodadar os Teste
-## `yarn test`
+ `yarn test`
 
