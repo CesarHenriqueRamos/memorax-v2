@@ -46,11 +46,12 @@ const BlockedItem = async (db:Firestore,id:string, block:boolean) => {
 };
 
 // Função para finalizar um item no Firestore
-const FinalizeItem = async (db:Firestore,id:string, block:boolean) => {
+const FinalizeItem = async (db:Firestore,id:string, block:boolean,userName:string) => {
   if (!block) {
     const docRef = doc(db, 'tasks', id);
     await updateDoc(docRef, {
-      finalize: true
+      finalize: true,
+      name_finalize:userName
     });
   }
 };

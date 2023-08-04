@@ -38,7 +38,7 @@ export const Home = () => {
   }
 
   const finalizeItem = async(id,block) => {
-    FinalizeItem(db,id,block);
+    FinalizeItem(db,id,block,user.displayName);
   }
 
   const search = async () => {
@@ -94,6 +94,10 @@ export const Home = () => {
                   <h4 className="title">{item.title}</h4>
                   <p className="description">{item.description}</p>
                   <div className="card-buttons">
+                    {item.finalize && 
+                    <>
+                     <p>Responsavel:{item.name_finalize}</p>
+                    </> }
                     {
                      !item.finalize && 
                      <>

@@ -14,26 +14,36 @@ describe('Testes para a função FinalizeItem', () => {
     jest.clearAllMocks();
   });
 
-  test('Deve finalizar o item quando não estiver bloqueado', async () => {
-    const dbMock = firestoreMock;
-    const id = 'documentoId';
-    const block = false;
-
-    const docRefMock = firestoreMock.collection('tasks').doc(id);
-    (doc as jest.Mock).mockReturnValueOnce(docRefMock);
-
-    await FinalizeItem(dbMock, id, block);
-
-    expect(doc).toHaveBeenCalledWith(dbMock, 'tasks', id);
-    expect(updateDoc).toHaveBeenCalledWith(docRefMock, { finalize: true });
+  describe('Testes para a função FinalizeItem', () => {
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+  
+    it('Deve finalizar o item quando não estiver bloqueado', async () => {
+      // Arrange
+      const dbMock = firestoreMock;
+      const id = 'documentoId';
+      const block = false;
+      const userName = 'teste';
+      const docRefMock = firestoreMock.collection('tasks').doc(id);
+      (doc as jest.Mock).mockReturnValueOnce(docRefMock);
+  
+      // Act
+      await FinalizeItem(dbMock, id, block, userName);
+  
+      // Assert
+      expect(doc).toHaveBeenCalledWith(dbMock, 'tasks', id);
+      expect(updateDoc).toHaveBeenCalledWith(docRefMock, { finalize: true, name_finalize: userName });
+    });
   });
 
   test('Não deve finalizar o item quando estiver bloqueado', async () => {
     const dbMock = firestoreMock;
     const id = 'documentoId';
     const block = true;
+    const userName = 'teste';
 
-    await FinalizeItem(dbMock, id, block);
+    await FinalizeItem(dbMock, id, block,userName);
 
     expect(doc).not.toHaveBeenCalled();
     expect(updateDoc).not.toHaveBeenCalled();
