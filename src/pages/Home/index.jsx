@@ -45,6 +45,7 @@ export const Home = () => {
     setCampoFiltrado("");
   }
   const blockedItem = async (id,block) => {
+    setBlock(!block)
     BlockedItem(db,id,block); 
     setModalBlocked(true); 
     setCampoFiltrado("");
