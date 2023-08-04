@@ -5,12 +5,14 @@ import { Save } from "../../functions/functions";
 import "./style.css"
 import { getFirestore } from "@firebase/firestore";
 import { app } from "../../services/firebaseConfig";
+import { ModalNotification } from "../../components/ModalNotification";
 
 export const Create = () => {
   const {user,signOut} = useAuthGoogle();
   const db = getFirestore(app);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [modalCreate, setModalCreate] = useState(false);
 
   const SaveItem = () =>{
     
@@ -20,7 +22,7 @@ export const Create = () => {
     }
     const response = Save(db,title,description,infoUser);
      if(response){
-       alert("Cadastrado com sucesso")
+      setModalCreate(true)
        setTitle("");
        setDescription("")
      }
@@ -54,6 +56,10 @@ export const Create = () => {
           </div>
         </div>
         </div>
+        {modalCreate && 
+          <ModalNotification title="Item Cadastrado com sucesso"
+          handleCloseModalNotification={setModalCreate} />
+       }
     </div> 
     
     )

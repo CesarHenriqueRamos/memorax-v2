@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useAuthGoogle } from "../../hooks/authGoogle";
 import { BlockedItem, DeleteItem, FinalizeItem, UpdateItem } from "../../functions/functions";
 import { Card } from "../../components/Card/inde.";
+import { ModalNotification } from "../../components/ModalNotification";
 
 export const Home = () => {
   const {user,signOut} = useAuthGoogle();
@@ -18,6 +19,10 @@ export const Home = () => {
   const [id, setId] = useState('');
   const [block, setBlock] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalEdit, setModalEdit] = useState(false);
+  const [modalFinalize, setModalFinalize] = useState(false);
+  const [modalDelete, setModalDelete] = useState(false);
+  const [modalBlocked, setModalBlocked] = useState(false);
 
   const db = getFirestore(app);
   const confCollection = collection(db, "tasks");
@@ -36,15 +41,18 @@ export const Home = () => {
 
   const deleteItem = async (id,block) => {
     DeleteItem(db,id,block);
+    setModalDelete(true);
     setCampoFiltrado("");
   }
   const blockedItem = async (id,block) => {
-    BlockedItem(db,id,block);  
+    BlockedItem(db,id,block); 
+    setModalBlocked(true); 
     setCampoFiltrado("");
   }
 
   const finalizeItem = async(id,block) => {
     FinalizeItem(db,id,block,user.displayName);
+    setModalFinalize(true);
     setCampoFiltrado("");
   }
 
@@ -72,12 +80,14 @@ export const Home = () => {
 
   const savaEdit = () => {
     UpdateItem(db,id,block,title,description);
+    setModalEdit(true);
     setCampoFiltrado("");
     setModalOpen(false)
   }
 
     return (
       <div className={"container"}>
+
       <div className='header'>
         <h1>MemoraX</h1>
         <ul>
@@ -134,6 +144,22 @@ export const Home = () => {
         </div>
         </div>
       )}
+      {modalEdit && 
+        <ModalNotification title="Dados Editados com Sucesso"
+        handleCloseModalNotification={setModalEdit} />
+      }
+      {modalFinalize && 
+        <ModalNotification title="Encerrado a atividade com Sucesso"
+        handleCloseModalNotification={setModalFinalize} />
+      }
+      {modalDelete && 
+        <ModalNotification title="Item deletado com Sucesso"
+        handleCloseModalNotification={setModalDelete} />
+      }
+      {modalBlocked && 
+        <ModalNotification title="Item Bloqueado com Sucesso"
+        handleCloseModalNotification={setModalBlocked} />
+      }
     </div> 
     
     )
