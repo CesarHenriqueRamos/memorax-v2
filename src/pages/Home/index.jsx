@@ -31,7 +31,7 @@ export const Home = () => {
       return () => unsubscribe();
     }
     
-  }, [confCollection]);
+  }, [confCollection,campoFiltrado]);
 
   const deleteItem = async (id,block) => {
     DeleteItem(db,id,block);
