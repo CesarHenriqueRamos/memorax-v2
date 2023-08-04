@@ -1,0 +1,107 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box{
+  
+  width: 80vw;
+  background-color: #FF7C4B;
+  font-size: 20px;
+  padding: 60px 50px;
+  color: white;
+  border-radius: 5px;
+  height: 75vh;
+  margin-top: 40px;
+}
+
+
+.header{
+  background-color: #FF7C4B;
+  color: white;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul{
+  display: flex;
+}
+
+li{
+  padding: 10px;
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.close{
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.form{
+  width: 70vw;
+  
+}
+.form-group{
+  width: 100%;
+  padding: 20px;
+}
+
+.input-form{
+  width: 100%;
+  padding: 10px;
+  background-color: white;border-radius: 5px;
+  border: none;
+}
+.textarea-form{
+  width: 100%;
+  padding: 10px;
+  background-color: white;border-radius: 5px;
+  border: none;
+  resize: none;
+}
+
+.button-form{
+  padding: 10px 20px;
+  background-color: #27AE60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.container-form{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.svg-icon{
+  margin-right: 5%;
+}
+
+@media screen and (max-width:499px) {
+  .box{  
+    padding: 60px 20px;
+  }
+  
+  
+}
