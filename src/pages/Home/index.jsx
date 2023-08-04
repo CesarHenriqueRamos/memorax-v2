@@ -22,12 +22,15 @@ export const Home = () => {
   const confCollection = collection(db, "tasks");
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(confCollection, (snapshot) => {
-      const updatedData = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    if(campoFiltrado.length === 0){
+      const unsubscribe = onSnapshot(confCollection, (snapshot) => {
+        const updatedData = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       setDataInfo(updatedData);
-    });
+      });
 
-    return () => unsubscribe();
+      return () => unsubscribe();
+    }
+    
   }, [confCollection]);
 
   const deleteItem = async (id,block) => {
