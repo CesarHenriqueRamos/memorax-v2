@@ -17,10 +17,6 @@ export const Home = () => {
   const [id, setId] = useState('');
   const [block, setBlock] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [infoUser, setInfoUser] = useState({});
-  if(typeof user === 'string'){
-    setInfoUser(JSON.parse(user) )
-  }
 
   const db = getFirestore(app);
   const confCollection = collection(db, "tasks");
@@ -103,7 +99,7 @@ export const Home = () => {
                      <>
                      
                     
-                    {item.user_create === infoUser.email &&
+                    {item.user_create === user.email &&
                       <>
                         {
                         !item.block ?

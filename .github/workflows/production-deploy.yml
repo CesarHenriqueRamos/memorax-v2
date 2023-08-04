@@ -11,6 +11,8 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
+      - name: Limpar Cache do Yarn
+        run: yarn cache clean      
 
       - name: Build frontend
         run: yarn build

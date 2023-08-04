@@ -1,8 +1,8 @@
-import {  useState } from "react"
-import "./style.css"
+import {  useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthGoogle } from "../../hooks/authGoogle";
 import { Save } from "../../functions/functions";
+import "./style.css"
 
 export const Create = () => {
   const {user,signOut} = useAuthGoogle();
