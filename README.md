@@ -2,7 +2,7 @@
 
 ## Link da Aplicação na Web
 
-    https://memorax-768e0.web.app/
+    https://memorax-23c99.web.app/
 
 ## Documentação de Requisitos
  
@@ -14,9 +14,9 @@
     
 ### configurações para ambiente local
 ## Instalação
-### yarn
+### `yarn`
 ## Rodar o projeto
-### yarn start
+### `yarn start`
 ## Rodadar os Teste
-## yarn test
+## `yarn test`
 
