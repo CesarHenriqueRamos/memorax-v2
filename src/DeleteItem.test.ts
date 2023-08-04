@@ -1,6 +1,6 @@
-import { DeleteItem } from '../functions/functions';
+import { DeleteItem } from './functions/functions';
 import { deleteDoc, doc } from 'firebase/firestore';
-import { firestoreMock } from '../firebase-mock.d';
+import { firestoreMock } from './firebase-mock.d';
 
 
 // Crie um mock para a função deleteDoc do Firestore

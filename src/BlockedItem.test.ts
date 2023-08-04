@@ -1,6 +1,6 @@
-import { BlockedItem } from '../functions/functions';
+import { BlockedItem } from './functions/functions';
 import { updateDoc, doc } from 'firebase/firestore';
-import { firestoreMock } from '../firebase-mock';
+import { firestoreMock } from './firebase-mock.d';
 
 
 // Crie um mock para a função updateDoc do Firestore

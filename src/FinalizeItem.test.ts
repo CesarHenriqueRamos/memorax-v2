@@ -1,6 +1,6 @@
-import { FinalizeItem } from '../functions/functions';
+import { FinalizeItem } from './functions/functions';
 import { updateDoc, doc } from 'firebase/firestore';
-import { firestoreMock } from '../firebase-mock.d';
+import { firestoreMock } from './firebase-mock.d';
 
 
 // Crie um mock para a função updateDoc do Firestore
