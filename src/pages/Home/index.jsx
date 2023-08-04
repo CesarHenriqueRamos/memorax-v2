@@ -157,7 +157,7 @@ export const Home = () => {
         handleCloseModalNotification={setModalDelete} />
       }
       {modalBlocked && 
-        <ModalNotification title="Item Bloqueado com Sucesso"
+        <ModalNotification title={block?"Item Bloqueado com Sucesso":"Item Desbloqueado com Sucesso"}
         handleCloseModalNotification={setModalBlocked} />
       }
     </div> 
