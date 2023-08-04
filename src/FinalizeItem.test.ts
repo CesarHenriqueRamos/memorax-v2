@@ -22,7 +22,7 @@ describe('Testes para a função FinalizeItem', () => {
     it('Deve finalizar o item quando não estiver bloqueado', async () => {
       // Arrange
       const dbMock = firestoreMock;
-      const id = 'documentoId';
+      const id = 'd4dKaz23maoCVSBPcesar';
       const block = false;
       const userName = 'teste';
       const docRefMock = firestoreMock.collection('tasks').doc(id);
@@ -39,7 +39,7 @@ describe('Testes para a função FinalizeItem', () => {
 
   test('Não deve finalizar o item quando estiver bloqueado', async () => {
     const dbMock = firestoreMock;
-    const id = 'documentoId';
+    const id = 'd4dKaz23maoCVSBPcesar';
     const block = true;
     const userName = 'teste';
 

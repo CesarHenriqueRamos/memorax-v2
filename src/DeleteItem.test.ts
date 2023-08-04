@@ -16,7 +16,7 @@ describe('Testes para a função DeleteItem', () => {
 
   test('Deve deletar o item quando não estiver bloqueado', async () => {
     const dbMock = firestoreMock;
-    const id = 'documentoId';
+    const id = 'd4dKaz23maoCVSBPcesar';
     const block = false;
 
     const docRefMock = firestoreMock.collection('tasks').doc(id);
@@ -30,7 +30,7 @@ describe('Testes para a função DeleteItem', () => {
 
   test('Não deve deletar o item quando estiver bloqueado', async () => {
     const dbMock = firestoreMock;
-    const id = 'documentoId';
+    const id = 'd4dKaz23maoCVSBPcesar';
     const block = true;
 
     await DeleteItem(dbMock, id, block);
