@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2  
 
-      - name: Limpar Cache do Yarn
-        run: yarn cache clean      
+      - name: Install Dependencies
+        run: yarn install
 
       - name: Build frontend
         run: yarn build
