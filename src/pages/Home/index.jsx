@@ -71,7 +71,7 @@ export const Home = () => {
 
   const savaEdit = () => {
     UpdateItem(db,id,block,title,description);
-    
+    setCampoFiltrado("");
     setModalOpen(false)
   }
 
