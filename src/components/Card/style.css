@@ -1,0 +1,64 @@
+
+  .card{
+    width: 70vw;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .card-buttons{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .button{
+    padding: 5px 15px;
+    border: none;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .button-delete{
+    background-color: #E74C3C;
+  }
+
+  .button-update{
+    background-color: #F5B041;
+  }
+
+  .button-finalisation{
+    background-color: #27AE60;
+  }
+
+  .button-block{
+    background-color: #2C3E50;
+  }
+
+
+  /* card */
+  .create-user{
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: lighter;
+  }
+
+  .title{
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .description{
+    font-size: 14px;
+  }
+
+  .finalise{
+    background-color: #48C9B0;
+    color:white;
+  }
+
+ 
+  .responsible{
+    font-size: 1rem;
+    font-weight: bold;
+  }
