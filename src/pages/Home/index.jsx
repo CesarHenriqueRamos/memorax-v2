@@ -35,13 +35,16 @@ export const Home = () => {
 
   const deleteItem = async (id,block) => {
     DeleteItem(db,id,block);
+    setCampoFiltrado("");
   }
   const blockedItem = async (id,block) => {
     BlockedItem(db,id,block);  
+    setCampoFiltrado("");
   }
 
   const finalizeItem = async(id,block) => {
     FinalizeItem(db,id,block,user.displayName);
+    setCampoFiltrado("");
   }
 
   const search = async () => {
