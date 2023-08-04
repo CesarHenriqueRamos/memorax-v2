@@ -1,9 +1,7 @@
-import { deleteDoc, doc, updateDoc,addDoc, getFirestore, collection } from 'firebase/firestore';
-import { app } from '../services/firebaseConfig';
+import { deleteDoc, doc, updateDoc,addDoc, collection, Firestore } from 'firebase/firestore';
 
-const db = getFirestore(app);
 
-const Save = async (title: string, description: string, infoUser: any) => {
+const Save = async (db:Firestore,title: string, description: string, infoUser: any) => {
 
   const taskData = {
     title,
@@ -31,7 +29,7 @@ const Save = async (title: string, description: string, infoUser: any) => {
 
 
 // Função para deletar um item no Firestore
-const DeleteItem = async (id:string, block:boolean) => {
+const DeleteItem = async (db:Firestore,id:string, block:boolean) => {
   if (!block) {
     const docRef = doc(db, 'tasks', id);
     await deleteDoc(docRef);
@@ -39,7 +37,7 @@ const DeleteItem = async (id:string, block:boolean) => {
 };
 
 // Função para bloquear/desbloquear um item no Firestore
-const BlockedItem = async (id:string, block:boolean) => {
+const BlockedItem = async (db:Firestore,id:string, block:boolean) => {
   const docRef = doc(db, 'tasks', id);
   await updateDoc(docRef, {
     block: !block
@@ -47,7 +45,7 @@ const BlockedItem = async (id:string, block:boolean) => {
 };
 
 // Função para finalizar um item no Firestore
-const FinalizeItem = async (id:string, block:boolean) => {
+const FinalizeItem = async (db:Firestore,id:string, block:boolean) => {
   if (!block) {
     const docRef = doc(db, 'tasks', id);
     await updateDoc(docRef, {
@@ -56,7 +54,7 @@ const FinalizeItem = async (id:string, block:boolean) => {
   }
 };
 
-const UpdateItem = async (id:string, block:boolean, title:string,description:string) => {
+const UpdateItem = async (db:Firestore,id:string, block:boolean, title:string,description:string) => {
     if (!block) {
       const docRef = doc(db, 'tasks', id);
       await updateDoc(docRef, {

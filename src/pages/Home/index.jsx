@@ -31,13 +31,13 @@ export const Home = () => {
   }, [confCollection]);
 
   const deleteItem = async (id,block) => {
-    DeleteItem(id,block);
+    DeleteItem(db,id,block);
   }
-  const blockedItem = async (id,block) => {
+  const blockedItem = async (db,id,block) => {
     BlockedItem(id,block);  
   }
 
-  const finalizeItem = async(id,block) => {
+  const finalizeItem = async(db,id,block) => {
     FinalizeItem(id,block);
   }
 

@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { useAuthGoogle } from "../../hooks/authGoogle";
 import { Save } from "../../functions/functions";
 import "./style.css"
+import { getFirestore } from "@firebase/firestore";
+import { app } from "../../services/firebaseConfig";
 
 export const Create = () => {
   const {user,signOut} = useAuthGoogle();
-
+  const db = getFirestore(app);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -15,7 +17,7 @@ export const Create = () => {
       email:user.email,
       name: user.displayName
     }
-    const response = Save(title,description,infoUser);
+    const response = Save(db,title,description,infoUser);
      if(response){
        alert("Cadastrado com sucesso")
        setTitle("");

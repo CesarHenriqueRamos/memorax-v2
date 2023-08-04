@@ -1,6 +1,7 @@
-const { BlockedItem } = require('./helpers/functions'); 
-const { updateDoc, doc } = require('firebase/firestore'); 
-const { firestoreMock } = require('./firebase-mock-config'); 
+import { BlockedItem } from '../functions/functions';
+import { updateDoc, doc } from 'firebase/firestore';
+import { firestoreMock } from '../firebase-mock';
+
 
 // Crie um mock para a função updateDoc do Firestore
 jest.mock('firebase/firestore', () => ({
@@ -14,30 +15,30 @@ describe('Testes para a função BlockedItem', () => {
   });
 
   test('Deve desbloquear o item quando estiver bloqueado', async () => {
-    const dbMock = firestoreMock; 
+    const dbMock = firestoreMock;
     const id = 'documentoId';
     const block = true;
 
     const docRefMock = firestoreMock.collection('tasks').doc(id);
-    doc.mockReturnValueOnce(docRefMock);
+    (doc as jest.Mock).mockReturnValueOnce(docRefMock);
 
     await BlockedItem(dbMock, id, block);
 
-    expect(doc).toHaveBeenCalledWith(dbMock, 'tasks', id); 
-    expect(updateDoc).toHaveBeenCalledWith(docRefMock, { block: false }); 
+    expect(doc).toHaveBeenCalledWith(dbMock, 'tasks', id);
+    expect(updateDoc).toHaveBeenCalledWith(docRefMock, { block: false });
   });
 
   test('Deve bloquear o item quando não estiver bloqueado', async () => {
-    const dbMock = firestoreMock; 
+    const dbMock = firestoreMock;
     const id = 'documentoId';
     const block = false;
 
     const docRefMock = firestoreMock.collection('tasks').doc(id);
-    doc.mockReturnValueOnce(docRefMock);
+    (doc as jest.Mock).mockReturnValueOnce(docRefMock);
 
     await BlockedItem(dbMock, id, block);
 
-    expect(doc).toHaveBeenCalledWith(dbMock, 'tasks', id); 
-    expect(updateDoc).toHaveBeenCalledWith(docRefMock, { block: true }); 
+    expect(doc).toHaveBeenCalledWith(dbMock, 'tasks', id);
+    expect(updateDoc).toHaveBeenCalledWith(docRefMock, { block: true });
   });
 });

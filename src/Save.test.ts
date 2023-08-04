@@ -1,6 +1,6 @@
-const { Save } = require('./helpers/functions'); 
-const { addDoc } = require('firebase/firestore'); 
-const { firestoreMock } = require('./firebase-mock-config'); 
+import { Save } from './functions/functions';
+import { addDoc } from 'firebase/firestore';
+import { firestoreMock } from './firebase-mock.d';
 
 // Crie um mock para a função addDoc do Firestore
 jest.mock('firebase/firestore', () => ({
@@ -14,9 +14,9 @@ describe('Testes para a função Save', () => {
 
   test('Deve retornar "Cadastrado com sucesso" ao salvar um novo documento', async () => {
     const confCollectionMock = firestoreMock.collection('tasks');
-    const responseMock = { type: 'document' }; 
+    const responseMock = { type: 'document' } as any; 
 
-    addDoc.mockResolvedValueOnce(responseMock);
+    (addDoc as jest.Mock).mockResolvedValueOnce(responseMock);
 
     const title = 'Título da tarefa';
     const description = 'Descrição da tarefa';
@@ -43,7 +43,7 @@ describe('Testes para a função Save', () => {
     const confCollectionMock = firestoreMock.collection('conf'); 
     const errorMock = new Error('Erro ao salvar documento'); 
 
-    addDoc.mockRejectedValueOnce(errorMock);
+    (addDoc as jest.Mock).mockRejectedValueOnce(errorMock);
 
     const title = 'Título da tarefa';
     const description = 'Descrição da tarefa';
