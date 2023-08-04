@@ -90,13 +90,13 @@ export const Home = () => {
 
               return (
                 <div className={item.finalize?"finalise card": "card"} key={item.id}  >
-                  <p className="create-user">{item.name_user_create}</p>
+                  <p className="create-user">Criado por {item.name_user_create}</p>
                   <h4 className="title">{item.title}</h4>
                   <p className="description">{item.description}</p>
                   <div className="card-buttons">
                     {item.finalize && 
                     <>
-                     <p className="responsible">Responsavel:{item.name_finalize}</p>
+                     <p className="responsible">Responsavel: {item.name_finalize}</p>
                     </> }
                     {
                      !item.finalize && 

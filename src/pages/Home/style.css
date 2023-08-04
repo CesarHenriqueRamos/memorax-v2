@@ -133,12 +133,13 @@
 
   /* card */
   .create-user{
-    font-size: 12px;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
     font-weight: lighter;
   }
 
   .title{
-    font-size: 16px;
+    font-size: 1.5rem;
     font-weight: bold;
   }
 
@@ -184,7 +185,7 @@
   }
   .form-input-modal{
     width: 100%;
-    padding: 10px;
+    padding: 0.6rem;
     border: 1px solid #FF7C4B;
     border-radius: 5px;
   }
