@@ -43,18 +43,21 @@ export const Home = () => {
     DeleteItem(db,id,block);
     setModalDelete(true);
     setCampoFiltrado("");
+    reloaded()
   }
   const blockedItem = async (id,block) => {
     setBlock(!block)
     BlockedItem(db,id,block); 
     setModalBlocked(true); 
     setCampoFiltrado("");
+    reloaded()
   }
 
   const finalizeItem = async(id,block) => {
     FinalizeItem(db,id,block,user.displayName);
     setModalFinalize(true);
     setCampoFiltrado("");
+    reloaded()
   }
 
   const search = async () => {
