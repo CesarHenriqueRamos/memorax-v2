@@ -53,8 +53,6 @@ const Search = async (db: Firestore, campoFiltrado: string) => {
   }
 };
   
-
-
 // Função para deletar um item no Firestore
 const DeleteItem = async (db:Firestore,id:string, block:boolean) => {
   if (!block) {

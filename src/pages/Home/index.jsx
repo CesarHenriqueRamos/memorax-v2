@@ -3,11 +3,11 @@ import { app } from "../../services/firebaseConfig";
 import { collection, getFirestore, onSnapshot } from "firebase/firestore";
 import "./style.css"
 import { Link } from "react-router-dom";
-// import { BlockedItem, DeleteItem, FinalizeItem, UpdateItem } from "../../helpers/functions";
 import { useAuthGoogle } from "../../hooks/authGoogle";
-import { BlockedItem, DeleteItem, FinalizeItem, Search, UpdateItem } from "../../functions/functions";
+import { BlockedItem, DeleteItem, FinalizeItem, Search } from "../../functions/functions";
 import { Card } from "../../components/Card/inde.";
 import { ModalNotification } from "../../components/ModalNotification";
+import { ModalEdit } from "../../components/ModalEdit";
 
 export const Home = () => {
   const {user,signOut} = useAuthGoogle();
@@ -72,17 +72,6 @@ export const Home = () => {
     setModalOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
-
-  const savaEdit = () => {
-    UpdateItem(db,id,block,title,description);
-    setModalEdit(true);
-    setCampoFiltrado("");
-    setModalOpen(false)
-  }
-
     return (
       <div className={"container"}>
 
@@ -102,7 +91,6 @@ export const Home = () => {
           <div className="container-card">
           {
             dataInfo.map(item => {
-
               return (
                 <Card
                  dataItem={item}
@@ -113,34 +101,19 @@ export const Home = () => {
                 />
               )
             })
-
           }
           </div>
         </div>
       </div>
       {modalOpen && (
-        <div className="modal-overlay">
-        <div className="modal">
-          <div className="modal-content">
-            <h2 className="title-modal">Editar Informações</h2>
-           <div className="form-group-modal">
-            <label htmlFor="title" className="label">Titulo:</label>
-            <input type="text" name="title" id="title" value={title}
-             onChange={e => setTitle(e.target.value)} className="form-input-modal" />
-           </div>
-           <div className="form-group-modal">
-            <label htmlFor="description" className="label">Descrição:</label>
-            <input type="text" name="description" id="description"
-             value={description} onChange={e => setDescription(e.target.value)} className="form-input-modal" />
-           </div>
-            <div className="form-group-modal flex">
-              <button className="button-modal" onClick={handleCloseModal}>Fechar</button>
-              <button className="button-modal success" onClick={()=>savaEdit()}>Salvar</button>
-            </div>
-            
-          </div>
-        </div>
-        </div>
+        <ModalEdit 
+        titleItem={title}
+        descriptionItem={description} 
+        onChangeModalOpen={data => setModalOpen(data)}
+        onChangeModalMensage={data => setModalEdit(data)}
+        db={db}
+        id={id}
+        block={block} />
       )}
       {modalEdit && 
         <ModalNotification title="Dados Editados com Sucesso"
