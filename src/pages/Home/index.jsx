@@ -97,9 +97,14 @@ export const Home = () => {
             <button className="button-box-search" onClick={() => search()}>pesquisar</button>
           </div>
           <div className="container-card">
+            {dataInfo.length === 0 &&
+                <h2>Não a cards Criados</h2>
+            }
           {
+            
             dataInfo.map(item => {
               return (
+                
                 <Card
                  dataItem={item}
                  handleblockedItem={blockedItem}
