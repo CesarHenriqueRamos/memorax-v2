@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { app } from "../../services/firebaseConfig";
-import { collection, getDocs ,getFirestore, query, where, or,  onSnapshot } from "firebase/firestore";
+import { collection, getFirestore, onSnapshot } from "firebase/firestore";
 import "./style.css"
 import { Link } from "react-router-dom";
 // import { BlockedItem, DeleteItem, FinalizeItem, UpdateItem } from "../../helpers/functions";
 import { useAuthGoogle } from "../../hooks/authGoogle";
-import { BlockedItem, DeleteItem, FinalizeItem, UpdateItem } from "../../functions/functions";
+import { BlockedItem, DeleteItem, FinalizeItem, Search, UpdateItem } from "../../functions/functions";
 import { Card } from "../../components/Card/inde.";
 import { ModalNotification } from "../../components/ModalNotification";
 
@@ -59,11 +59,8 @@ export const Home = () => {
 
   const search = async () => {
     if(campoFiltrado.length > 0){
-    const consultaFiltrada = query(confCollection, or(
-      where('name_user_create', '==', campoFiltrado),
-      where('title', '==', campoFiltrado)));
-    const data = await getDocs(consultaFiltrada);
-      setDataInfo(data.docs.map((doc)=> ({...doc.data(), id: doc.id})));    
+    const data = await Search(db, campoFiltrado);
+      setDataInfo(data);    
     }
   }
 

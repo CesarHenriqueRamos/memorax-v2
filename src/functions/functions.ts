@@ -1,4 +1,4 @@
-import { deleteDoc, doc, updateDoc,addDoc, collection, Firestore } from 'firebase/firestore';
+import { deleteDoc, doc, updateDoc,addDoc, collection, Firestore, query, where, getDocs } from 'firebase/firestore';
 
 
 const Save = async (db:Firestore,title: string, description: string, infoUser: any) => {
@@ -25,6 +25,33 @@ const Save = async (db:Firestore,title: string, description: string, infoUser: a
   }
 };
 
+const Search = async (db: Firestore, campoFiltrado: string) => {
+  try {
+    const tasksCollection = collection(db, 'tasks');
+    let data: any[] = [];
+    const consultaFiltradaTitle = query(tasksCollection,
+      where('title', '==', campoFiltrado)
+    );
+    const dataTitle = await getDocs(consultaFiltradaTitle);
+
+    const consultaFiltradaUserCreate = query(tasksCollection,
+      where('name_user_create', '==', campoFiltrado)
+    );
+    const dataUserCreate = await getDocs(consultaFiltradaUserCreate);
+
+    if(dataTitle.docs.length > 0){
+      data = dataTitle.docs.map((doc)=> ({...doc.data(), id: doc.id}))
+    }
+    if(dataUserCreate.docs.length > 0){
+      data = dataUserCreate.docs.map((doc)=> ({...doc.data(), id: doc.id}))
+    }
+
+   
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
   
 
 
@@ -65,4 +92,4 @@ const UpdateItem = async (db:Firestore,id:string, block:boolean, title:string,de
     }
   };
 
-  export {Save,DeleteItem, BlockedItem, FinalizeItem, UpdateItem}
+  export {Save,DeleteItem, BlockedItem, FinalizeItem, UpdateItem, Search}

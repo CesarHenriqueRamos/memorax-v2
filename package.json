@@ -43,5 +43,12 @@
       "last 1 safari version"
     ]
   },
-  "moduleFileExtensions": ["js", "ts", "d.ts"]
+  "moduleFileExtensions": [
+    "js",
+    "ts",
+    "d.ts"
+  ],
+  "devDependencies": {
+    "@firebase/testing": "^0.20.11"
+  }
 }
