@@ -2,7 +2,7 @@
 
 ## Link da Aplicação na Web
 
-    https://memorax-23c99.web.app/
+    https://memorax-v2.web.app/
 
 ## Documentação de Requisitos
  
