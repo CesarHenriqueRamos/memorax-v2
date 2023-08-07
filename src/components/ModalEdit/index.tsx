@@ -10,9 +10,10 @@ interface ModalEditProps{
     db:any;
     onChangeModalOpen: (data:boolean)=> void;
     onChangeModalMensage: (data:boolean)=> void;
+    onChangeeaload: ()=> void;
 }
 
-export function ModalEdit({titleItem, descriptionItem, db, id,block,onChangeModalOpen,onChangeModalMensage}:ModalEditProps){
+export function ModalEdit({titleItem, descriptionItem, db, id,block,onChangeModalOpen,onChangeModalMensage,onChangeeaload}:ModalEditProps){
     const [title, setTitle] = useState(titleItem);
   const [description, setDescription] = useState(descriptionItem);
     const handleCloseModal = () => {
@@ -20,8 +21,9 @@ export function ModalEdit({titleItem, descriptionItem, db, id,block,onChangeModa
       };
     const savaEdit = () => {
         UpdateItem(db,id,block,title,description);
-        onChangeModalMensage(true)
-        onChangeModalOpen(false)
+        onChangeModalMensage(true);
+        onChangeModalOpen(false);
+        onChangeeaload();
       }
     return(
         <div className="modal-overlay">

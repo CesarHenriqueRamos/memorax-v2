@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import { app } from "../../services/firebaseConfig";
-import { collection, getFirestore, onSnapshot } from "firebase/firestore";
-import "./style.css"
+import { collection, getFirestore, onSnapshot, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { useAuthGoogle } from "../../hooks/authGoogle";
 import { BlockedItem, DeleteItem, FinalizeItem, Search } from "../../functions/functions";
 import { Card } from "../../components/Card/inde.";
 import { ModalNotification } from "../../components/ModalNotification";
 import { ModalEdit } from "../../components/ModalEdit";
+import "./style.css"
 
 export const Home = () => {
   const {user,signOut} = useAuthGoogle();
@@ -72,6 +72,11 @@ export const Home = () => {
     setModalOpen(true);
   };
 
+  const reloaded = async () =>{
+    const data = await getDocs(confCollection);
+    const dataInfo = data.docs.map((doc)=> ({...doc.data(), id: doc.id}))
+    setDataInfo(dataInfo);
+  }
     return (
       <div className={"container"}>
 
@@ -111,6 +116,7 @@ export const Home = () => {
         descriptionItem={description} 
         onChangeModalOpen={data => setModalOpen(data)}
         onChangeModalMensage={data => setModalEdit(data)}
+        onChangeeaload={()=> reloaded()}
         db={db}
         id={id}
         block={block} />
