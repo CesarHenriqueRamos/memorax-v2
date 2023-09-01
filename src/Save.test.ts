@@ -12,7 +12,7 @@ test('Deve retornar "Cadastrado com sucesso" ao salvar um novo documento', async
   const confCollectionMock = firestoreMock.collection('tasks');
   const responseMock = { type: 'document' };
 
-  // Mock a função addDoc
+  // Mock a função addDoc 
   (addDoc as jest.Mock).mockResolvedValueOnce(responseMock);
   (collection as jest.Mock).mockReturnValueOnce(confCollectionMock);
 

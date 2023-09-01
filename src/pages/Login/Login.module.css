@@ -1,22 +1,23 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.container{
+
+.container {
   width: 100vw;
   /* height: 100vh; */
   overflow: hidden;
 }
 
-.container-header{
+.container-header {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 70vh;
 }
 
-.box-header{
+.box-header {
   max-width: 500px;
   width: 500px;
   background-color: #FF7C4B;
@@ -29,31 +30,37 @@
 }
 
 
-.box-button-header{
+.box-button-header {
   padding: 10px 5px;
   background-color: white;
   width: 100%;
   border: none;
   border-radius: 3px;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-button-header svg{
+  margin-right: 1rem;
 }
 
-.header{
+.header {
   background-color: #FF7C4B;
   color: white;
   width: 100%;
   padding: 20px;
 }
 
-.svg-icon{
+.svg-icon {
   margin-right: 5%;
 }
 
 @media screen and (max-width:499px) {
-  .box-header{
+  .box-header {
     font-size: 15px;
     width: 300px;
   }
-  
-  
+
+
 }

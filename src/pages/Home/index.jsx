@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import { app } from "../../services/firebaseConfig";
 import { collection, getFirestore, onSnapshot, getDocs } from "firebase/firestore";
-import { Link } from "react-router-dom";
 import { useAuthGoogle } from "../../hooks/authGoogle";
 import { BlockedItem, DeleteItem, FinalizeItem, Search } from "../../functions/functions";
 import { Card } from "../../components/Card";
 import { ModalNotification } from "../../components/ModalNotification";
 import { ModalEdit } from "../../components/ModalEdit";
-import "./style.css"
+import { Header } from "../../components/Header";
+import styles from './Home.module.css'
 
 export const Home = () => {
   const {user,signOut} = useAuthGoogle();
@@ -83,20 +83,14 @@ export const Home = () => {
     return (
       <div className={"container"}>
 
-      <div className='header'>
-        <h1>MemoraX</h1>
-        <ul>
-          <li><Link to="/create">Criar</Link></li>
-          <li><button onClick={signOut} className="close">Sair</button></li>
-        </ul>
-      </div>
-      <div className='container-box'>
-        <div className='box'>
-          <div className="box-search">
-            <input type="text" name="" id="" className="input-box-search" value={campoFiltrado} onChange={e => setCampoFiltrado(e.target.value)} />
-            <button className="button-box-search" onClick={() => search()}>pesquisar</button>
+      <Header nameLink="Criar" link="/create" />
+      <div className={styles['container-box']}>
+        <div className={styles.box}>
+          <div className={styles["box-search"]}>
+            <input type="text" name="" id="" className={styles["input-box-search"]} value={campoFiltrado} onChange={e => setCampoFiltrado(e.target.value)} />
+            <button className={styles["button-box-search"]} onClick={() => search()}>pesquisar</button>
           </div>
-          <div className="container-card">
+          <div className={styles["container-card"]}>
             {dataInfo.length === 0 &&
                 <h2>Não a cards Criados</h2>
             }

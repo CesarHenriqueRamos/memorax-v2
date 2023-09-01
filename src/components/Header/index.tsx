@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuthGoogle } from "../../hooks/authGoogle";
-import styles from './styles.module.scss'
+import styles from './Header.module.css'
 
 interface HeaderProps{
     nameLink:string;
@@ -13,7 +13,7 @@ export function Header({nameLink,link}:HeaderProps){
         <h1>MemoraX</h1>
         <ul>
           <li><Link to={link}>{nameLink}</Link></li>
-          <li><button onClick={signOut} className="close">Sair</button></li>
+          <li><button onClick={signOut} className={styles.close}>Sair</button></li>
         </ul>
       </div>
     )
