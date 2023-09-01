@@ -125,7 +125,6 @@ export const Home = () => {
         onChangeModalOpen={data => setModalOpen(data)}
         onChangeModalMensage={data => setModalEdit(data)}
         onChangeeaload={()=> reloaded()}
-        db={db}
         id={id}
         block={block} />
       )}

@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { UpdateItem } from "../../functions/functions";
 import styles from './ModalEdit.module.css'
+import { getFirestore } from "firebase/firestore";
+import { app } from "../../services/firebaseConfig";
 
 interface ModalEditProps{
     titleItem:string;
     descriptionItem:string;
     id:string;
     block:boolean;
-    db:any;
     onChangeModalOpen: (data:boolean)=> void;
     onChangeModalMensage: (data:boolean)=> void;
     onChangeeaload: ()=> void;
 }
 
-export function ModalEdit({titleItem, descriptionItem, db, id,block,onChangeModalOpen,onChangeModalMensage,onChangeeaload}:ModalEditProps){
-    const [title, setTitle] = useState(titleItem);
+export function ModalEdit({titleItem, descriptionItem,  id,block,onChangeModalOpen,onChangeModalMensage,onChangeeaload}:ModalEditProps){
+  const db = getFirestore(app);
+  const [title, setTitle] = useState(titleItem);
   const [description, setDescription] = useState(descriptionItem);
     const handleCloseModal = () => {
         onChangeModalOpen(false);
