@@ -21,24 +21,13 @@
     border-radius: 5px;
   }
 
-  .form-group-modal{
-    padding: 10px;
-    width: 100%;
-    margin:10px 0;
-  }
-  .label{
-    color: #cf3e09;
-  }
-  .form-input-modal{
-    width: 100%;
-    padding: 0.6rem;
-    border: 1px solid #FF7C4B;
-    border-radius: 5px;
-  }
   .title-modal{
     color: #cf3e09;
   }
-  .flex{
+  .form-group-modal-flex{
+    padding: 10px;
+    width: 100%;
+    margin:10px 0;
     display: flex;
     justify-content: flex-end;
   }
@@ -50,10 +39,7 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  .success{
-    background-color: #27AE60;
-    color: white;
-  }
+ 
 
   @media screen and (max-width:499px) {
     .modal{

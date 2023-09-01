@@ -1,0 +1,85 @@
+/* modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo com transparência */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal{
+    z-index: 10000;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    padding: 20px;
+    background-color: white;
+    width: 50%;
+    border-radius: 5px;
+  }
+
+  .form-group-modal{
+    padding: 10px;
+    width: 100%;
+    margin:10px 0;
+  }
+  .label{
+    color: #cf3e09;
+  }
+  .form-input-modal{
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #FF7C4B;
+    border-radius: 5px;
+  }
+  .title-modal{
+    color: #cf3e09;
+  }
+  .form-group-modal-flex{
+    padding: 10px;
+    width: 100%;
+    margin:10px 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .button-modal{
+    margin-left: 10px;
+    padding: 10px 20px;
+    margin-bottom: -20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .button-modal-success{
+    margin-left: 10px;
+    padding: 10px 20px;
+    margin-bottom: -20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #27AE60;
+    color: white;
+  }
+
+  @media screen and (max-width:499px) {
+    .modal{
+      width: 100%;
+      top: 15%;
+      left: 0%;
+    }
+    .flex{
+      display: block;
+    }
+    .button-modal{
+      width: 100%;
+      margin-left: 0;
+     
+    }
+    .success{ margin-top: 20px;}
+    .form-group-modal{
+      padding:  0;
+    }
+  }

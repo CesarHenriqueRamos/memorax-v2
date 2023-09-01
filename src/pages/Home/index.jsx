@@ -4,7 +4,7 @@ import { collection, getFirestore, onSnapshot, getDocs } from "firebase/firestor
 import { Link } from "react-router-dom";
 import { useAuthGoogle } from "../../hooks/authGoogle";
 import { BlockedItem, DeleteItem, FinalizeItem, Search } from "../../functions/functions";
-import { Card } from "../../components/Card/inde.";
+import { Card } from "../../components/Card";
 import { ModalNotification } from "../../components/ModalNotification";
 import { ModalEdit } from "../../components/ModalEdit";
 import "./style.css"

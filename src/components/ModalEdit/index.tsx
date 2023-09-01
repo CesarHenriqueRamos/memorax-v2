@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { UpdateItem } from "../../functions/functions";
-import './style.css';
+import styles from './ModalEdit.module.css'
 
 interface ModalEditProps{
     titleItem:string;
@@ -26,23 +26,23 @@ export function ModalEdit({titleItem, descriptionItem, db, id,block,onChangeModa
         onChangeeaload();
       }
     return(
-        <div className="modal-overlay">
-        <div className="modal">
-          <div className="modal-content">
-            <h2 className="title-modal">Editar Informações</h2>
-           <div className="form-group-modal">
-            <label htmlFor="title" className="label">Titulo:</label>
+        <div className={styles['modal-overlay']}>
+        <div className={styles.modal}>
+          <div className={styles['modal-content']}>
+            <h2 className={styles["title-modal"]}>Editar Informações</h2>
+           <div className={styles["form-group-modal"]}>
+            <label htmlFor="title" className={styles.label}>Titulo:</label>
             <input type="text" name="title" id="title" value={title}
-             onChange={e => setTitle(e.target.value)} className="form-input-modal" />
+             onChange={e => setTitle(e.target.value)} className={styles["form-input-modal"]} />
            </div>
-           <div className="form-group-modal">
-            <label htmlFor="description" className="label">Descrição:</label>
+           <div className={styles["form-group-modal"]}>
+            <label htmlFor="description" className={styles.label}>Descrição:</label>
             <input type="text" name="description" id="description"
-             value={description} onChange={e => setDescription(e.target.value)} className="form-input-modal" />
+             value={description} onChange={e => setDescription(e.target.value)} className={styles["form-input-modal"]} />
            </div>
-            <div className="form-group-modal flex">
-              <button className="button-modal" onClick={handleCloseModal}>Fechar</button>
-              <button className="button-modal success" onClick={()=>savaEdit()}>Salvar</button>
+            <div className={styles["form-group-modal-flex"]}>
+              <button className={styles["button-modal"]} onClick={handleCloseModal}>Fechar</button>
+              <button className={styles["button-modal-success"]} onClick={()=>savaEdit()}>Salvar</button>
             </div>
             
           </div>
