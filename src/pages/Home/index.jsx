@@ -10,7 +10,7 @@ import { Header } from "../../components/Header";
 import styles from './Home.module.css'
 
 export const Home = () => {
-  const {user,signOut} = useAuthGoogle();
+  const {user} = useAuthGoogle();
 
   const [dataInfo, setDataInfo] = useState([]);
   const [campoFiltrado, setCampoFiltrado] = useState("");
