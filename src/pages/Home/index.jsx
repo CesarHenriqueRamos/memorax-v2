@@ -84,19 +84,20 @@ export const Home = () => {
       <div className={"container"}>
 
       <Header nameLink="Criar" link="/create" />
+
       <div className={styles['container-box']}>
         <div className={styles.box}>
           <div className={styles["box-search"]}>
-            <input type="text" name="" id="" className={styles["input-box-search"]} value={campoFiltrado} onChange={e => setCampoFiltrado(e.target.value)} />
-            <button className={styles["button-box-search"]} onClick={() => search()}>pesquisar</button>
+            <input type="text" name="" id="" className={styles["input-box-search"]} value={campoFiltrado} onChange={e => setCampoFiltrado(e.target.value)} placeholder="Pesquisar..." />
+            <button className={styles["button-box-search"]} onClick={() => search()}>Pesquisar</button>
           </div>
           <div className={styles["container-card"]}>
-            {dataInfo.length === 0 &&
+            {dataInfo?.length === 0 &&
                 <h2>Não a cards Criados</h2>
             }
           {
             
-            dataInfo.map(item => {
+            dataInfo?.map(item => {
               return (
                 
                 <Card
