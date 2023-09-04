@@ -1,18 +1,14 @@
-import React from 'react';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import { ModalEdit } from '.';
 
-// Mock para a função UpdateItem
 jest.mock('../../functions/functions', () => ({
   UpdateItem: jest.fn(),
 }));
 
-// Mock para as funções de callback
 const onChangeModalOpen = jest.fn();
 const onChangeModalMensage = jest.fn();
 const onChangeeaload = jest.fn();
 
-// Dados de exemplo para o ModalEditProps
 const modalProps = {
   titleItem: 'Test Title',
   descriptionItem: 'Test Description',
@@ -53,12 +49,10 @@ describe('ModalEdit Component', () => {
     fireEvent.change(descriptionInput, { target: { value: 'Updated Description' } });
     fireEvent.click(saveButton);
 
-    // Espera a função UpdateItem ser chamada
     await waitFor(() => expect(onChangeModalMensage).toHaveBeenCalledWith(true));
     await waitFor(() => expect(onChangeModalOpen).toHaveBeenCalledWith(false));
     await waitFor(() => expect(onChangeeaload).toHaveBeenCalled());
 
-    // Verifica se a função UpdateItem foi chamada com os argumentos corretos
     expect(require('../../functions/functions').UpdateItem).toHaveBeenCalledWith(
       expect.any(Object),
       '1',

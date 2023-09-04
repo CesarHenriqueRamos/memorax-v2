@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDItiPZK6ZXK2rkhcSVcZ6FKpvSiCZPgsM",
   authDomain: "memorax-v2.firebaseapp.com",
@@ -10,6 +10,5 @@ const firebaseConfig = {
   measurementId: "G-F3YVYDQLFF"
 };
 
-// Initialize Firebase
+
 export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);

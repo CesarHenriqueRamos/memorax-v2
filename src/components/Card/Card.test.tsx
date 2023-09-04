@@ -35,7 +35,6 @@ test('Card component renders correctly', () => {
 
   render(<Card {...props} />);
 
-  // Assert that the component renders the correct data
   expect(screen.getByText('Test Title')).toBeInTheDocument();
   expect(screen.getByText('Test Description')).toBeInTheDocument();
   expect(screen.getByText('Criado por Test User')).toBeInTheDocument();

@@ -1,9 +1,7 @@
 import { MockFirestore } from 'firebase-mock';
 
-// Crie uma instância do Firestore mockado
 const firestoreMock = new MockFirestore();
 
-// Adicione coleções e documentos fictícios para testar
 const tasksCollection = firestoreMock.collection('tasks');
 tasksCollection.doc('documentoId').set({
   title: 'Tarefa de teste',
